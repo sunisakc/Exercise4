@@ -77,11 +77,88 @@ namespace ShellProj_Datastructures_Memory
             */
 
             //List<string> theList = new List<string>();
+
+
             //string input = Console.ReadLine();
             //char nav = input[0];
             //string value = input.substring(1);
 
             //switch(nav){...}
+
+            
+
+            List<string> theList = new List<string>();
+            //string[] name = new string[0];
+
+            theList.Add("Anna");
+            theList.Add("Plura");
+            theList.Add("Bog");
+            theList.Add("Delli");
+            theList.Add("Mina");
+
+            //Console.WriteLine(theList);
+            //foreach (string name in theList)
+            //{
+            //    Console.WriteLine(name);
+            //}
+
+
+            //Console.WriteLine("\nRemove(\"name from the list\")");
+            //theList.Remove("Mina");
+
+            //Console.WriteLine();
+            //foreach (string name in theList)
+            //{
+            //    Console.WriteLine(name);
+            //}
+
+            //theList.Count();
+            
+
+            Console.WriteLine("\nCapacity: {0}", theList.Capacity);
+            Console.WriteLine("Count: {0}", theList.Count);
+            string inputItem = Console.ReadLine();
+            char nav = inputItem[0];
+            string value = inputItem.Substring(1);
+
+            Console.WriteLine("Please add name to the list or remove name from the list"
+                   + "\n+. Add name"
+                   + "\n-. Remove name");
+            char input = ' ';
+            try
+            {
+                input = Console.ReadLine()[0]; //Tries to set input to the first char in an input line
+            }
+            catch (IndexOutOfRangeException) //If the input line is empty, we ask the users for some input.
+            {
+                Console.Clear();
+                Console.WriteLine("Please enter some input!");
+            }
+            
+            switch (inputItem)
+            {
+                case "+":
+                    theList.Add(Console.ReadLine());
+                    //for (int i = 0; i < name.Length; i++)
+                    //{
+                    //    name[i] = Console.ReadLine();
+                    //}
+                    break;
+
+                   
+                case "-":
+                    theList.Remove(Console.ReadLine());
+                    break;
+                case "0":
+
+                    return;
+                default:
+                    Console.WriteLine("Please enter some valid input + or - ");
+                    break;
+            }
+
+            
+            
         }
 
         /// <summary>
@@ -94,6 +171,8 @@ namespace ShellProj_Datastructures_Memory
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+
+
         }
 
         /// <summary>
