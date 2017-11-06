@@ -96,24 +96,24 @@ namespace ShellProj_Datastructures_Memory
             theList.Add("Delli");
             theList.Add("Mina");
 
-            //Console.WriteLine(theList);
-            //foreach (string name in theList)
-            //{
-            //    Console.WriteLine(name);
-            //}
+            Console.WriteLine(theList);
+            foreach (string name in theList)
+            {
+                Console.WriteLine(name);
+            }
 
 
-            //Console.WriteLine("\nRemove(\"name from the list\")");
-            //theList.Remove("Mina");
+            Console.WriteLine("\nRemove(\"name from the list\")");
+            theList.Remove("Mina");
 
-            //Console.WriteLine();
-            //foreach (string name in theList)
-            //{
-            //    Console.WriteLine(name);
-            //}
+            Console.WriteLine();
+            foreach (string name in theList)
+            {
+                Console.WriteLine(name);
+            }
 
-            //theList.Count();
-            
+            theList.Count();
+
 
             Console.WriteLine("\nCapacity: {0}", theList.Capacity);
             Console.WriteLine("Count: {0}", theList.Count);
@@ -185,7 +185,79 @@ namespace ShellProj_Datastructures_Memory
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+
+            Stack<string> name = new Stack<string>();
+            name.Push("Kalle");
+            name.Push("Greta");
+            name.Push("Stina");
+            name.Push("Olle");
+
+            Console.Write("ICA queue:");
+            foreach (string qname in name)
+                Console.Write(qname + " ");
+
+
+            while (true)
+            {
+
+                Console.WriteLine("Please choose to add or remove name from the queuefrom 1, 2, 3, or 4 to reverstext input"
+                    + "\n1. Please remove from queue"
+                    + "\n2. Please add name to queue"
+                    + "\n3. Check current queue"
+                    + "\n4. Please input text to reverse"
+                    + "\n0. Exit ");
+                char input = ' '; //Creates the character input to be used with the switch-case below.
+                try
+                {
+                    input = Console.ReadLine()[0]; //Tries to set input to the first char in an input line
+                }
+                catch (IndexOutOfRangeException) //If the input line is empty, we ask the users for some input.
+                {
+                    Console.Clear();
+                    Console.WriteLine("Please enter some input!");
+                }
+                switch (input)
+                {
+                    case '1':
+
+                        Console.WriteLine("Please remove name '{0}", name.Pop());
+                        Console.WriteLine("The next person to dequeue: {0}", name.Peek());
+                        Console.WriteLine("The next person is '{0}'", name.Pop());
+
+                        break;
+                    case '2':
+                        Console.Write("Add new person to the queue");
+                        name.Push(Console.ReadLine());
+
+                        break;
+
+                    case '3':
+
+                        Console.WriteLine("Current queue:");
+                        foreach (string qname in name)
+                            Console.Write(qname + "\n ");
+
+                        break;
+
+                    case '4':
+
+                        Console.WriteLine("Reverse input Text");
+                        Console.ReadLine();
+                        foreach (string qname in name)
+                            Console.Write(qname + "\n ");
+
+                        break;
+
+                    case '0':
+                        return;
+                    default:
+                        Console.WriteLine("Please enter some valid input (0, 1, 2, 3)");
+                        break;
+
+                }
+            }
         }
+    
 
         static void CheckParanthesis()
         {
